@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <script src="https://kit.fontawesome.com/f1ae2fc269.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1440px;
+            display: flex;
+            height: auto;
+        }
+        .left{
+            width: 30%;
+            height: auto;
+            padding: 10px 1rem;
+            float: left;
+        }
+        .header{
+            padding: 10px 0;
+            text-align: center;
+        }
+        form{
+            width: 100%;
+        }
+        .form-content{
+            position: relative;
+            padding: 10px 0;
+        }
+        .form-content label{
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .form-content input{
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-size: 12px;
+            padding: 8px;
+            width: 90%;
+            margin-bottom: 5px;
+        }
+        .form-content i{
+            visibility: hidden;
+            position: absolute;
+            top: 40px;
+            right: 15px;
+        }
+        .form-content small{
+            visibility: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .select-form{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .select{
+            width: 50%;
+            position: relative;
+        }
+        .select select{
+            position: absolute;
+            right: 10px;
+        }
+        #btn{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border: 1px solid #000;  
+            background: rgb(25, 194, 157);
+            color: #fff;
+            letter-spacing: 2px;
+            font-size: 15px;
+        }
+        .userInput{
+            width: 100px;
+            background: transparent;
+            border: none;
+            color: #000;
+        }
+        .gradeInput{
+            width: 50px;
+        }
+        input[type="text"]{
+            text-transform: capitalize;
+        }
+        input[name="dept"]{
+            text-transform: uppercase;
+        }
+        input[type = "number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+        .form-content.success input{
+            border-color: #2ecc71;
+        }
+        .form-content.error input{
+            border-color: #e74c3c;
+        }
+        .form-content.success i.fa-check-circle{
+            color: #2ecc71;
+            visibility: visible;
+        }
+        .form-content.error i.fa-exclamation-circle{
+            color: #e74c3c;
+            visibility: visible;
+        }
+        .form-content.error small{
+            color: #e74c3c;
+            visibility: visible;    
+        }
+        .right{
+            width: 70%;
+            height: 500px;
+            padding: 2rem 1rem;
+            float: right;
+        }
+        table{
+            border-collapse: collapse;
+            width: 90%;
+            position: relative;
+            padding: 1rem;
+            color: #000; 
+        }
+        table button{
+            background-color: transparent;
+            color: black;
+            padding: 5px 10px;
+            border: 1px dashed #000;
+            cursor: pointer; 
+        }
+        td, th {
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: rgb(235, 229, 229);
+        }
+        @media (max-width: 990px){
+            .container{
+                flex-wrap: wrap;
+            }
+            .left,.right, table{
+                width: 100%;
+            }
+            .select-form{
+                width: 80%;
+                margin: 0 auto;
+            }
+            .select{
+                width: 40%;
+            }
+        }
+        @media (max-width: 480px){
+            .select-form{
+                width: 100%;
+                margin: 0;
+            }
+            .select{
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="header">
+                <h2>Student's CGPA</h2>
+            </div>
+            <form action="" id="form">
+                <div class="form-content">
+                    <label for="regno">Reg No</label><br>
+                    <input type="number" placeholder="eg) 1813019" name = "regno" id="regno">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-content">
+                    <label for="fname">Name</label><br>
+                    <input type="text" name = "fname" id="name">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-content">
+                    <label for="dept">Department</label><br>
+                    <input type="text" name = "dept" id="dept" >
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="select-form">
+                    <div class="form-content select">
+                        <label for="os">OS</label>
+                        <select name = "os" class="three">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="pdm">PDM</label>
+                        <select name = "pdm" class="four">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="daa">DAA</label>
+                        <select name = "daa" class="four">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="mm">MM</label>
+                        <select name = "mm" class="three">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="java">JAVA</label>
+                        <select name = "java" class="three">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="se">SE</label>
+                        <select name = "se" class="three">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="javalab">JAVA lab</label>
+                        <select name = "javalab" class="one">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="oslab">OS lab</label>
+                        <select name = "oslab" class="one">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>
+                    <div class="form-content select">
+                        <label for="mmlab">MM lab</label>
+                        <select name = "mmlab" class="one">
+                            <option value="O">O</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="RA-F">RA-F</option>
+                        </select>
+                    </div>  
+                </div>
+                <button type="submit" id="btn">Submit</button>
+                
+            </form>
+        </div>
+        <div class="right">
+            <div class="right-table">
+                <table border="1">
+                    <tr>
+                        <th id="regNo">RegNo</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>OS</th>
+                        <th>PDM</th>
+                        <th>DAA</th>
+                        <th>MM</th>
+                        <th>JAVA</th>
+                        <th>SE</th>
+                        <th>JAVA lab</th>
+                        <th>OS lab</th>
+                        <th>MM lab</th>
+                        <th>CGPA</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>  
+                     
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
